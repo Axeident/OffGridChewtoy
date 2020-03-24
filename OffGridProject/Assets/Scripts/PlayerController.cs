@@ -24,6 +24,9 @@ public class PlayerController : MonoBehaviour
     private int currentWater = 0;
     private int currentFood = 0;
 
+    //Adding Accessor for sustainability
+    public float currentSustainability {get; private set;}
+
     public float startFunds = 100000.0f;
     private float currentFunds;
 
@@ -83,5 +86,7 @@ public class PlayerController : MonoBehaviour
             + ((currentWater>goalWater ? 1: currentWater / (float)goalWater) / 3.0f) 
             + ((currentFood>goalFood ? 1: currentFood / (float)goalFood) / 3.0f)) * 100;
         ProgressText.text = "Currently " + sustainability.ToString() + "% Sustainable";
+
+        currentSustainability = sustainability;
     }
 }
